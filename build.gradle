@@ -1,0 +1,30 @@
+apply plugin: 'scala'
+
+group 'org.biacode.biacentric.biap2p'
+version '0.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes "Main-Class": "org.biacode.biacentric.biap2p.MainApplication"
+    }
+    baseName = "biap2p-all-in-one-jar"
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:2.11.8"
+    compile "io.netty:netty-all:4.1.24.Final"
+    compile "org.springframework:spring-context:5.0.5.RELEASE"
+    compile "org.slf4j:slf4j-api:1.7.25"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+    testCompile "org.scalatest:scalatest_2.11:3.0.0"
+    testCompile "junit:junit:4.12"
+}
