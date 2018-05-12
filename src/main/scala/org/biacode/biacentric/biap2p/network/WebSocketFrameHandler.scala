@@ -29,7 +29,6 @@ class WebSocketFrameHandler extends SimpleChannelInboundHandler[TextWebSocketFra
       val commandText: String = command.asText
       println(commandText)
     }
-    //TODO: This write to socket is experimental, and will be removed in future
     ctx.channel.writeAndFlush(new TextWebSocketFrame(request))
   }
 

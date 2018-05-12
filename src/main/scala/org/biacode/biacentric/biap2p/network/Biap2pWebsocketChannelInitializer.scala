@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component
   * Time: 5:59 PM
   */
 @Component
-class Biap2pChannelInitializer extends ChannelInitializer[SocketChannel] {
+class Biap2pWebsocketChannelInitializer extends ChannelInitializer[SocketChannel] {
 
-  private val LOGGER = LoggerFactory.getLogger(classOf[Biap2pChannelInitializer])
+  private val LOGGER = LoggerFactory.getLogger(classOf[Biap2pWebsocketChannelInitializer])
 
   @Autowired
   private val webSocketFrameHandler: WebSocketFrameHandler = null
